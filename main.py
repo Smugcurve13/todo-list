@@ -8,10 +8,12 @@ while True:
         case "add":
             todo = input("Enter a todo: ")
             todos.append(todo)
-        case "show":
+        case "show" :   #use "|" to add multiple words for a single case
             for item in todos:
                 print(item)
         case "exit":
             break
+        case _: #use random variable or _ for giving a command to a text that isnt mentioned in case 
+            print("hey , you have entered an unknown command")
 
 print("bye")
