@@ -2,3 +2,4 @@ prepare
 shower
 play
 fix
+clean new
