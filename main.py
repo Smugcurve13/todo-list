@@ -21,8 +21,8 @@ while True:
             todos = file.readlines()
             file.close()
 
-            #new_todos = [item.strip('\n') for item in todos]
-            #use above as ref for list comprehension
+            # new_todos = [item.strip('\n') for item in todos]
+            # use above as ref for list comprehension
 
             for index , item in enumerate(todos):
                 item = item.strip('\n')
