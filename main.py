@@ -2,7 +2,7 @@ while True:
     user_action = input("Type add, show, edit, complete or exit: ")
     user_action = user_action.strip()
 
-    if "add" in user_action:
+    if user_action.startswith("add"):
 
         todo = user_action[4:] + '\n'
 
@@ -14,20 +14,17 @@ while True:
         with open('todos.txt', 'w') as file:
             file.writelines(todos)
 
-    elif "show" in user_action:                                               #use "|" to add multiple words for a single case
+    elif user_action.startswith("show"):                                              
 
         with open('todos.txt','r') as file:
             todos = file.readlines()
 
-                                                                # new_todos = [item.strip('\n') for item in todos]
-                                                                # use above as ref for list comprehension
-
-        for index , item in enumerate(todos):
-            item = item.strip('\n')
+        for index , item in enumerate(todos):                   # new_todos = [item.strip('\n') for item in todos]
+            item = item.strip('\n')                             # use above as ref for list comprehension
             row = f"{index + 1}-{item}"
             print(row)
 
-    elif "edit" in user_action:
+    elif user_action.startswith("edit"):
 
         number = int(user_action[5:])
         number = number - 1
@@ -41,7 +38,7 @@ while True:
         with open('todos.txt', 'w') as file:
             file.writelines(todos)
 
-    elif "complete" in user_action:
+    elif user_action.startswith("complete"):
 
         number = int(user_action[9:])
         
@@ -58,7 +55,7 @@ while True:
         message = f"Todo {todo_to_remove} was removed from the list"
         print(message)
 
-    elif "exit" in user_action:
+    elif user_action.startswith("exit"):
         break
     else:
         print("Command is not valid.")
