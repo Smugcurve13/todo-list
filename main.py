@@ -25,35 +25,43 @@ while True:
             print(row)
 
     elif user_action.startswith("edit"):
+        try:
+            number = int(user_action[5:])
+            print(number)
+            number = number - 1
+            
 
-        number = int(user_action[5:])
-        number = number - 1
+            with open('todos.txt','r') as file:
+                todos = file.readlines()
+            
+            new_todo = input("enter new todo:")
+            todos[number] = new_todo + '\n'                         # use [] for index of todo in list
 
-        with open('todos.txt','r') as file:
-            todos = file.readlines()
-        
-        new_todo = input("enter new todo:")
-        todos[number] = new_todo + '\n'                         # use [] for index of todo in list
-
-        with open('todos.txt', 'w') as file:
-            file.writelines(todos)
+            with open('todos.txt', 'w') as file:
+                file.writelines(todos)
+        except ValueError:
+            print("Your Command is not valid")
+            continue
 
     elif user_action.startswith("complete"):
+        try:    
+            number = int(user_action[9:])
+            
+            with open('todos.txt','r') as file:
+                todos = file.readlines()
 
-        number = int(user_action[9:])
-        
-        with open('todos.txt','r') as file:
-            todos = file.readlines()
+            index = number -1
+            todo_to_remove = todos[index].strip('\n')
+            todos.pop(index)
 
-        index = number -1
-        todo_to_remove = todos[index].strip('\n')
-        todos.pop(index)
+            with open('todos.txt', 'w') as file:
+                file.writelines(todos)
 
-        with open('todos.txt', 'w') as file:
-            file.writelines(todos)
-
-        message = f"Todo {todo_to_remove} was removed from the list"
-        print(message)
+            message = f"Todo {todo_to_remove} was removed from the list"
+            print(message)
+        except IndexError:
+            print("There is no item with that number")
+            continue
 
     elif user_action.startswith("exit"):
         break
