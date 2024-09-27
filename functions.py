@@ -9,3 +9,7 @@ def write_todos(todos_arg,filepath='todos.txt'):                                
     """" Write a To-do items list in the text file"""
     with open(filepath, 'w') as file:
         file.writelines(todos_arg)
+        
+# print(__name__) 
+# if __name__ == "__main__":                                              # this if statement is used to ensure only functions are called from this file in the main.py file
+#     print(__name__)                                                     # this gives the name of the file
