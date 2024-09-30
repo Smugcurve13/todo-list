@@ -12,6 +12,6 @@ def write_todos(todos_arg,filepath = FILEPATH):                                #
     with open(filepath, 'w') as file:
         file.writelines(todos_arg)
         
-# print(__name__) 
-# if __name__ == "__main__":                                              # this if statement is used to ensure only functions are called from this file in the main.py file
-#     print(__name__)                                                     # this gives the name of the file
+if __name__ == "__main__":                                              # this if statement is used to ensure only functions are called from this file in the main.py file
+    print("hello")                                                     
+    print(get_todos())
