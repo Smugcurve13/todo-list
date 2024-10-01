@@ -7,12 +7,14 @@ gui.theme("Black")
 clock = gui.Text("",key="clock")
 label = gui.Text("Type in a to-do")
 input_box = gui.InputText(tooltip = "Enter Todo", key='todo')
-add_button = gui.Button("Add")
+add_button = gui.Button(size=2, image_source="add.png", mouseover_colors="LightBlue2",
+                        tooltip="Add todo", key="Add")
 list_box = gui.Listbox(values = functions.get_todos(), key = 'todos', 
                        enable_events=True, size=[45, 10])
 
 edit_button = gui.Button("Edit")
-complete_button = gui.Button("Complete")
+complete_button = gui.Button(size=2, image_source="complete.png", mouseover_colors="Green",
+                            tooltip="Complete todo", key="Complete")
 exit_button = gui.Button("Exit")
 
 window = gui.Window('My to-do App' , 
